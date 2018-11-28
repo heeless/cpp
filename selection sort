@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int smallest(vector <int> s){
+	int sl = s[0], sl_i = 0;
+	
+	for(int i = 1; i < s.size(); ++i){
+		if(s[i] < sl){
+			sl = s[i];
+			sl_i = i;
+		}
+	}
+	return sl_i;
+}
+
+vector <int> sortSl(vector <int> s){
+	int sl, count = s.size();
+	vector <int> b;
+	
+	for(int i = 0; i < count; ++i){
+		sl = smallest(s);
+		b.push_back(s[sl]);
+		s.erase(s.begin() + sl);
+	}
+	
+	return b;
+}
+ 
+int main(){ 
+ 	int n;
+ 	vector <int> s;
+ 	
+ 	cin >> n;
+ 	
+	s.resize(n);
+	
+	for(int i = 0; i < n; ++i){
+		cin >> s[i];
+	}
+	
+	s = sortSl(s);
+	
+	for(auto now : s)
+		cout << now << " ";
+	
+	
+    return 0;
+}
