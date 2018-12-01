@@ -1,0 +1,20 @@
+#include <iostream>
+#include <functional>
+#include <string>
+
+using namespace std;
+
+int main(){
+	string str;
+	
+	cin >> str;
+	
+	hash <string> hash_fn;
+	
+	size_t str_hash = hash_fn(str);
+	
+	cout << str_hash << endl;
+	
+  return 0;
+}
+
