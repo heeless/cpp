@@ -1,0 +1,41 @@
+#include <iostream>
+#include <random>
+#include <ctime>
+
+using namespace std;
+
+int main(){	
+	
+	mt19937 mersenne(static_cast<unsigned int>(time(0)));
+	
+	int n = mersenne() % 100;
+	int l, count = 0;
+	
+	cout << "This is game, where you must guess secret number. With 8 attempts" << endl;
+	cout << endl;
+	
+	while(true){
+		cout << "Enter your number: ";
+		cin >> l;
+		
+		if(l > n)
+			cout << " < " << endl;
+		else if(l < n)
+			cout << " > " << endl;
+		else 
+			break;
+			
+		cout << endl;
+			
+		++count;
+	}
+	
+	cout << endl;
+	
+	if(count >= 8)
+		cout << "You are loss with " << count << " attempts" << endl;
+	else
+		cout << "You are win with " << count << " attempts" << endl;
+	
+    return 0;
+}
